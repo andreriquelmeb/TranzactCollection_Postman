@@ -1,0 +1,341 @@
+{
+	"info": {
+		"_postman_id": "e75f0546-4100-48a0-93ed-3aa7f599c1fd",
+		"name": "Tranzact Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AUTH2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://api.countrylayer.com/v2/all?access_key=ea8f6a6d9c08c3437161d19f0ea1c848",
+					"protocol": "http",
+					"host": [
+						"api",
+						"countrylayer",
+						"com"
+					],
+					"path": [
+						"v2",
+						"all"
+					],
+					"query": [
+						{
+							"key": "access_key",
+							"value": "ea8f6a6d9c08c3437161d19f0ea1c848"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET COUNTRY US",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar Status code 200\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar Name\", function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"United States of America\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar Alpha2Code\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.alpha2Code).to.eql('US');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar Capital\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.capital).to.eql('Washington, D.C.');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar Region\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.region).to.eql('Americas');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://api.countrylayer.com/v2/alpha/US?access_key=ea8f6a6d9c08c3437161d19f0ea1c848",
+					"protocol": "http",
+					"host": [
+						"api",
+						"countrylayer",
+						"com"
+					],
+					"path": [
+						"v2",
+						"alpha",
+						"US"
+					],
+					"query": [
+						{
+							"key": "access_key",
+							"value": "ea8f6a6d9c08c3437161d19f0ea1c848"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET COUNTRY DE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar Status code 200\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar Name\", function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Germany\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar Alpha2Code\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.alpha2Code).to.eql('DE');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar Capital\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.capital).to.eql('Berlin');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar Region\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.region).to.eql('Europe');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.countrylayer.com/v2/alpha/DE?access_key=ea8f6a6d9c08c3437161d19f0ea1c848",
+					"protocol": "http",
+					"host": [
+						"api",
+						"countrylayer",
+						"com"
+					],
+					"path": [
+						"v2",
+						"alpha",
+						"DE"
+					],
+					"query": [
+						{
+							"key": "access_key",
+							"value": "ea8f6a6d9c08c3437161d19f0ea1c848"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET COUNTRY GB",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar Status code 200\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar Name\", function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"United Kingdom\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar Alpha2Code\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.alpha2Code).to.eql('GB');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar Capital\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.capital).to.eql('London');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar Region\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.region).to.eql('Europe');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.countrylayer.com/v2/alpha/GB?access_key=ea8f6a6d9c08c3437161d19f0ea1c848",
+					"protocol": "http",
+					"host": [
+						"api",
+						"countrylayer",
+						"com"
+					],
+					"path": [
+						"v2",
+						"alpha",
+						"GB"
+					],
+					"query": [
+						{
+							"key": "access_key",
+							"value": "ea8f6a6d9c08c3437161d19f0ea1c848"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET INEXISTENT COUNTRY",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar Status code 404\", function(){\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar Message\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql('Not Found');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.countrylayer.com/v2/alpha/PP?access_key=ea8f6a6d9c08c3437161d19f0ea1c848",
+					"protocol": "http",
+					"host": [
+						"api",
+						"countrylayer",
+						"com"
+					],
+					"path": [
+						"v2",
+						"alpha",
+						"PP"
+					],
+					"query": [
+						{
+							"key": "access_key",
+							"value": "ea8f6a6d9c08c3437161d19f0ea1c848"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST NEW COUNTRY",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar Status code 404\", function(){\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar Message\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql('Not Found');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"name\": \"Test Country GG\",\r\n    \"topLevelDomain\": [\r\n            \".gg\"\r\n        ],\r\n    \"alpha2_code\": \"GG\",\r\n    \"alpha3_code\": \"GGA\",\r\n    \"callingCodes\": [\r\n            \"76\"\r\n        ],\r\n    \"capital\": \"CapitalCountry\",\r\n    \"altSpellings\": [\r\n            \"GG\",\r\n            \"Test Country GEGE\"\r\n        ],\r\n    \"region\": \"Asia\"\r\n }"
+				},
+				"url": {
+					"raw": "http://api.countrylayer.com/v2/all?access_key=ea8f6a6d9c08c3437161d19f0ea1c848",
+					"protocol": "http",
+					"host": [
+						"api",
+						"countrylayer",
+						"com"
+					],
+					"path": [
+						"v2",
+						"all"
+					],
+					"query": [
+						{
+							"key": "access_key",
+							"value": "ea8f6a6d9c08c3437161d19f0ea1c848"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
